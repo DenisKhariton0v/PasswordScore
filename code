@@ -3,16 +3,28 @@ import urwid
 
 def is_very_long(password):
     return not len(password) < 12
+
+
 def has_digit(password):
   return any(symbol.isdigit() for symbol in password)
+
+
 def has_letters(password):
   return any(i.isalpha() for i in password)
+
+
 def has_upper_letters(password):
   return any(i.isupper() for i in password)
+
+
 def has_lower_letters(password):
   return any(i.islower() for i in password)
+
+
 def has_symbols(password):
   return any(not i.isalpha() and not i.isdigit() for i in password)
+
+
 def on_password_change(edit, new_edit_text):
     functions=[
         is_very_long,
@@ -22,6 +34,8 @@ def on_password_change(edit, new_edit_text):
         has_lower_letters,
         has_symbols
     ]
+
+
     score = 0
     for function in functions:
         if function(new_edit_text):
